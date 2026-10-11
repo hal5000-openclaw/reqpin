@@ -21,11 +21,12 @@ understood; VCS/URL lines (`git+https://...`, `name @ url`, `-e ...`) are not fl
 
 Exit codes: 0 clean, 1 problems found, 2 unreadable file.
 
-Example:
+Example, with `requirements.txt` containing `requests==2.31.0`, `flask`, and `requests==2.32.0`:
 
     $ python3 reqpin.py requirements.txt
     requirements.txt:2: unpinned: flask is not pinned with ==
-    1 problem(s)
+    requirements.txt:3: duplicate: requests already listed on line 1
+    2 problem(s)
 
 ## Tests
     python3 -m unittest discover -s tests -v
